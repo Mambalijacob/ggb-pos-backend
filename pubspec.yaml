@@ -1,26 +1,54 @@
 name: ggb_pos
-description: Cloud POS system
+description: GGB POS - Offline + Cloud Sync + Analytics + AI Prediction
+
+publish_to: "none"
+
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.18.0 <3.0.0"
+  sdk: ">=3.3.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  http: ^1.2.0
-  shared_preferences: ^2.2.2
-  charts_flutter: ^0.12.0
+
+  # ================= UI =================
+  cupertino_icons: ^1.0.6
+
+  # ================= HTTP =================
+  http: ^1.2.1
+
+  # ================= STATE =================
+  provider: ^6.1.2
+
+  # ================= LOCAL STORAGE =================
+  sqflite: ^2.3.3+1
+  path: ^1.9.0
+
+  # ================= CONNECTIVITY =================
   connectivity_plus: ^7.1.0
-  flutter_local_notifications: ^21.0.0
-  flutter_local_notifications_linux: ^8.0.0
-  fl_chart: ^0.66.0
-  sqflite: ^2.3.0
-  path: ^1.9.0   # needed for sqflite database paths
+
+  # ================= LOCAL STORAGE (PREFERENCES) =================
+  shared_preferences: ^2.2.3
+
+  # ================= DATE =================
+  intl: ^0.20.2
+
+  # ================= CHARTS (ACTIVE LIBRARY) =================
+  fl_chart: ^0.66.2
+
+  # ================= EXPORT =================
+  pdf: ^3.10.7
+  printing: ^5.12.0
+
+  # ================= NOTIFICATIONS =================
+  flutter_local_notifications: ^17.1.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  flutter_lints: ^3.0.2
 
 flutter:
   uses-material-design: true

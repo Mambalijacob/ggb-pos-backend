@@ -3,7 +3,7 @@ import '../services/api_service.dart';
 
 class AnalyticsScreen extends StatefulWidget {
   final String token;
-  const AnalyticsScreen({required this.token});
+  const AnalyticsScreen({super.key, required this.token});
 
   @override
   State<AnalyticsScreen> createState() => _AnalyticsState();
@@ -20,15 +20,16 @@ class _AnalyticsState extends State<AnalyticsScreen> {
 
   void load() async {
     data = await ApiService.getSummary(widget.token);
+    if (!mounted) return;
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Analytics")),
+      appBar: AppBar(title: const Text("Analytics")),
       body: data == null
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : Column(
               children: [
                 Text("Sales: ${data!["total_sales"]}"),

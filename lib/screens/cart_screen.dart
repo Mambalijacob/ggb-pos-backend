@@ -3,7 +3,7 @@ import '../services/offline_service.dart';
 
 class CartScreen extends StatefulWidget {
   final String token;
-  const CartScreen({required this.token});
+  const CartScreen({super.key, required this.token});
 
   @override
   State<CartScreen> createState() => _CartState();
@@ -20,13 +20,14 @@ class _CartState extends State<CartScreen> {
 
   void load() async {
     items = await OfflineService.getCart();
+    if (!mounted) return;
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Cart")),
+      appBar: AppBar(title: const Text("Cart")),
       body: ListView(
         children: items.map((e) {
           return ListTile(

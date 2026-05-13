@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'GGB POS',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: LoginScreen(),   // ✅ removed const
+      home: const LoginScreen(),
     );
   }
 }

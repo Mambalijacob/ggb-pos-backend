@@ -3,7 +3,7 @@ import '../services/api_service.dart';
 
 class InventoryScreen extends StatefulWidget {
   final String token;
-  const InventoryScreen({required this.token});
+  const InventoryScreen({super.key, required this.token});
 
   @override
   State<InventoryScreen> createState() => _InventoryState();
@@ -20,13 +20,14 @@ class _InventoryState extends State<InventoryScreen> {
 
   void load() async {
     products = await ApiService.getInventory(widget.token);
+    if (!mounted) return;
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Inventory")),
+      appBar: AppBar(title: const Text("Inventory")),
       body: ListView.builder(
         itemCount: products.length,
         itemBuilder: (_, i) {

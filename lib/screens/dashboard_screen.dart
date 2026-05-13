@@ -6,7 +6,7 @@ import 'analytics_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   final String token;
-  const DashboardScreen({required this.token});
+  const DashboardScreen({super.key, required this.token});
 
   @override
   State<DashboardScreen> createState() => _DashboardState();
@@ -31,9 +31,9 @@ class _DashboardState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Dashboard")),
+      appBar: AppBar(title: const Text("Dashboard")),
       body: summary == null
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : Column(
               children: [
                 Text("Sales: ${summary!["total_sales"]}"),
@@ -48,7 +48,7 @@ class _DashboardState extends State<DashboardScreen> {
                       builder: (_) => InventoryScreen(token: widget.token),
                     ),
                   ),
-                  child: Text("Inventory"),
+                  child: const Text("Inventory"),
                 ),
                 ElevatedButton(
                   onPressed: () => Navigator.push(
@@ -57,7 +57,7 @@ class _DashboardState extends State<DashboardScreen> {
                       builder: (_) => CartScreen(token: widget.token),
                     ),
                   ),
-                  child: Text("Cart"),
+                  child: const Text("Cart"),
                 ),
                 ElevatedButton(
                   onPressed: () => Navigator.push(
@@ -66,7 +66,7 @@ class _DashboardState extends State<DashboardScreen> {
                       builder: (_) => AnalyticsScreen(token: widget.token),
                     ),
                   ),
-                  child: Text("Analytics"),
+                  child: const Text("Analytics"),
                 ),
               ],
             ),

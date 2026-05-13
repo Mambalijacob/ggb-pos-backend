@@ -3,8 +3,10 @@ import '../services/api_service.dart';
 import 'dashboard_screen.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
@@ -16,6 +18,8 @@ class _LoginScreenState extends State<LoginScreen> {
     setState(() => loading = true);
 
     final res = await ApiService.login(username.text, password.text);
+
+    if (!mounted) return;
 
     setState(() => loading = false);
 
@@ -39,16 +43,18 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             TextField(
               controller: username,
-              decoration: InputDecoration(labelText: "Username"),
+              decoration: const InputDecoration(labelText: "Username"),
             ),
             TextField(
               controller: password,
-              decoration: InputDecoration(labelText: "Password"),
+              decoration: const InputDecoration(labelText: "Password"),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: login,
-              child: loading ? CircularProgressIndicator() : Text("Login"),
+              child: loading
+                  ? const CircularProgressIndicator()
+                  : const Text("Login"),
             ),
           ],
         ),
