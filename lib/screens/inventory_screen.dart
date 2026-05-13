@@ -32,11 +32,12 @@ class _InventoryState extends State<InventoryScreen> {
         itemCount: products.length,
         itemBuilder: (_, i) {
           final p = products[i];
-          final low = p["stock"] < 5;
+          final quantity = p["quantity"] ?? p["stock"] ?? 0;
+          final low = p["low_stock"] ?? quantity < 5;
 
           return ListTile(
             title: Text(p["name"]),
-            subtitle: Text("Stock: ${p["stock"]}"),
+            subtitle: Text("Stock: $quantity"),
             trailing: Text("TZS ${p["price"]}"),
             tileColor: low ? Colors.red[100] : null,
           );

@@ -60,7 +60,7 @@ class ApiService {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer $token',
       },
-      body: jsonEncode(cart),
+      body: jsonEncode({"sales": cart}),
     );
 
     final data = jsonDecode(response.body);
@@ -172,7 +172,7 @@ class ApiService {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer $token',
       },
-      body: jsonEncode(sales),
+      body: jsonEncode({"sales": sales}),
     );
 
     final data = jsonDecode(response.body);

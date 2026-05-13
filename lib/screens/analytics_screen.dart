@@ -12,6 +12,9 @@ class AnalyticsScreen extends StatefulWidget {
 class _AnalyticsState extends State<AnalyticsScreen> {
   Map<String, dynamic>? data;
 
+  num get sales => data?["total_sales"] ?? data?["sales"] ?? 0;
+  num get profit => data?["total_profit"] ?? data?["profit"] ?? 0;
+
   @override
   void initState() {
     super.initState();
@@ -32,8 +35,8 @@ class _AnalyticsState extends State<AnalyticsScreen> {
           ? const Center(child: CircularProgressIndicator())
           : Column(
               children: [
-                Text("Sales: ${data!["total_sales"]}"),
-                Text("Profit: ${data!["total_profit"]}"),
+                Text("Sales: $sales"),
+                Text("Profit: $profit"),
               ],
             ),
     );

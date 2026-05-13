@@ -16,6 +16,12 @@ class _DashboardState extends State<DashboardScreen> {
   Map<String, dynamic>? summary;
   Map<String, dynamic>? prediction;
 
+  num get sales => summary?["total_sales"] ?? summary?["sales"] ?? 0;
+  num get profit => summary?["total_profit"] ?? summary?["profit"] ?? 0;
+  num get orders => summary?["total_orders"] ?? summary?["orders"] ?? 0;
+  num get predictedSales =>
+      prediction?["next_month"] ?? prediction?["predicted_next_day"] ?? 0;
+
   @override
   void initState() {
     super.initState();
@@ -36,11 +42,11 @@ class _DashboardState extends State<DashboardScreen> {
           ? const Center(child: CircularProgressIndicator())
           : Column(
               children: [
-                Text("Sales: ${summary!["total_sales"]}"),
-                Text("Profit: ${summary!["total_profit"]}"),
-                Text("Orders: ${summary!["total_orders"]}"),
+                Text("Sales: $sales"),
+                Text("Profit: $profit"),
+                Text("Orders: $orders"),
                 const SizedBox(height: 10),
-                Text("AI Prediction: ${prediction?["next_month"] ?? 0}"),
+                Text("AI Prediction: $predictedSales"),
                 ElevatedButton(
                   onPressed: () => Navigator.push(
                     context,

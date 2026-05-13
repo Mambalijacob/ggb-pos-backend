@@ -7,20 +7,20 @@ class AppConstants {
   static const String registerEndpoint = "/auth/register";
 
   // ================= INVENTORY =================
-  static const String inventoryEndpoint = "/inventory";
+  static const String inventoryEndpoint = "/inventory/";
 
   // ================= ANALYTICS =================
   static const String summaryEndpoint = "/analytics/summary";
   static const String topProductsEndpoint = "/analytics/top_products";
   static const String dailyTrendEndpoint = "/analytics/daily_trend";
   static const String monthlyTrendEndpoint = "/analytics/monthly_trend";
-  static const String predictionEndpoint = "/analytics/predict_sales";
+  static const String predictionEndpoint = "/ai/predict";
 
   // ================= SALES =================
   static const String salesEndpoint = "/sync/sales";
 
   // ================= REORDER =================
-  static const String reorderEndpoint = "/reorder";
+  static const String reorderEndpoint = "/reorder/";
 
   // ================= EXPORT =================
   static const String exportEndpoint = "/export/pdf";
